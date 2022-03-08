@@ -24,7 +24,7 @@ class ListFragment : Fragment() {
     }
 
     private fun goToNoteFragment(id: Long = 0L) {
-        val action = ListFragmentDirections.actionListFragmentToNoteFragment(id)
+        val action = ListFragmentDirections.actionListFragmentToNoteFragment()
         Navigation.findNavController(recyclerViewNotes).navigate(action)
     }
 
