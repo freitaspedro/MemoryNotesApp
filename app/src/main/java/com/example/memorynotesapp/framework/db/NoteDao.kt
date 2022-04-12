@@ -10,15 +10,15 @@ import androidx.room.Query
 interface NoteDao {
 
     @Insert(onConflict = REPLACE)
-    suspend fun add(noteEntity: NoteEntity)
+    fun add(noteEntity: NoteEntity)
 
     @Query("SELECT * FROM note WHERE id = :id")
-    suspend fun get(id: Long): NoteEntity?
+    fun get(id: Long): NoteEntity?
 
     @Query("SELECT * FROM note")
-    suspend fun getAll(): List<NoteEntity>
+    fun getAll(): List<NoteEntity>
 
     @Delete
-    suspend fun delete(noteEntity: NoteEntity)
+    fun delete(noteEntity: NoteEntity)
 
 }
