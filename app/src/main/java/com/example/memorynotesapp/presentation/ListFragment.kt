@@ -43,11 +43,11 @@ class ListFragment : Fragment() {
 
     @SuppressLint("FragmentLiveDataObserve")
     private fun observeViewModel() {
-        viewModel.notes.observe(this, Observer { notes ->
+        viewModel.notes.observe(this) { notes ->
             progressBar.visibility = View.GONE
             recyclerViewNotes.visibility = View.VISIBLE
             notesAdapter.refresh(notes.sortedByDescending { note -> note.updateAt })
-        })
+        }
     }
 
     override fun onResume() {

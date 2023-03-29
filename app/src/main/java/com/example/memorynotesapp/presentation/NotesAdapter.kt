@@ -15,7 +15,6 @@ class NotesAdapter(var notes: ArrayList<Note>): RecyclerView.Adapter<NotesAdapte
 
     inner class NoteViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
-        private val layout = view.cardViewNote
         private val title = view.textViewTitle
         private val content = view.textViewContent
         private val date = view.textViewDate

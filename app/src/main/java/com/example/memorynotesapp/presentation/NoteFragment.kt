@@ -52,16 +52,15 @@ class NoteFragment : Fragment() {
     }
 
     @SuppressLint("FragmentLiveDataObserve")
-    private fun observeViewModel() {
-        viewModel.isSaved.observe(this, Observer {
-          if (it) {
-              Toast.makeText(context, "Done!", Toast.LENGTH_SHORT).show()
-              hideKeyboard()
-              Navigation.findNavController(editTextTitle).popBackStack()
-          } else {
-              Toast.makeText(context, "Something went wrong, please try again", Toast.LENGTH_SHORT).show()
-          }
-        })
+    private fun observeViewModel() = viewModel.isSaved.observe(this) {
+        if (it) {
+            Toast.makeText(context, "Done!", Toast.LENGTH_SHORT).show()
+            hideKeyboard()
+            Navigation.findNavController(editTextTitle).popBackStack()
+        } else {
+            Toast.makeText(context, "Something went wrong, please try again", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
     private fun hideKeyboard() {
