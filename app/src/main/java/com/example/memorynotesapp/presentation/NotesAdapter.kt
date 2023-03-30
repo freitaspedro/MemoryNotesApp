@@ -11,10 +11,11 @@ import kotlinx.android.synthetic.main.item_note.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class NotesAdapter(var notes: ArrayList<Note>): RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
+class NotesAdapter(var notes: ArrayList<Note>, val actions: ListAction): RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
 
     inner class NoteViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
+        private val layout = view.cardViewNote
         private val title = view.textViewTitle
         private val content = view.textViewContent
         private val date = view.textViewDate
@@ -26,6 +27,7 @@ class NotesAdapter(var notes: ArrayList<Note>): RecyclerView.Adapter<NotesAdapte
             val sdf = SimpleDateFormat("MM dd, HH:mm:ss")
             val updateAt = Date(note.updateAt)
             date.text = "Last updated: ${sdf.format(updateAt)}"
+            layout.setOnClickListener { actions.onClick(note.id) }
         }
 
     }

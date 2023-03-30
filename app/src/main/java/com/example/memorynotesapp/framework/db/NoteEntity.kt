@@ -17,7 +17,7 @@ data class NoteEntity (
     val id: Long = 0L
 ) {
     companion object {
-        fun fromNote(note: Note) = NoteEntity(note.title, note.content, note.createAt, note.updateAt)
+        fun fromNote(note: Note) = NoteEntity(note.title, note.content, note.createAt, note.updateAt, note.id)
     }
     fun toNote() = Note(title, content, createAt, updateAt, id)
 }

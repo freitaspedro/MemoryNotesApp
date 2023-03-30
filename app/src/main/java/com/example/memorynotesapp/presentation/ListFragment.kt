@@ -14,9 +14,9 @@ import com.example.memorynotesapp.R
 import com.example.memorynotesapp.framework.NotesViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), ListAction {
 
-    private val notesAdapter = NotesAdapter(arrayListOf())
+    private val notesAdapter = NotesAdapter(arrayListOf(), this)
     private lateinit var viewModel: NotesViewModel
 
     override fun onCreateView(
@@ -57,7 +57,12 @@ class ListFragment : Fragment() {
 
     private fun goToNoteFragment(id: Long = 0L) {
         val action = ListFragmentDirections.actionListFragmentToNoteFragment()
+        action.noteId = id
         Navigation.findNavController(recyclerViewNotes).navigate(action)
+    }
+
+    override fun onClick(id: Long) {
+        goToNoteFragment(id)
     }
 
 }
