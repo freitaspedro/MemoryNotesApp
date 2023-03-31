@@ -30,6 +30,7 @@ class NotesViewModel(application: Application): AndroidViewModel(application) {
     fun getAll() {
         coroutineScope.launch {
             val allNotes = useCases.getAllNotes()
+            allNotes.forEach { it.wordCount = useCases.getWordCount.invoke(it) }
             notes.postValue(allNotes)
         }
     }

@@ -19,6 +19,7 @@ class NotesAdapter(var notes: ArrayList<Note>, val actions: ListAction): Recycle
         private val title = view.textViewTitle
         private val content = view.textViewContent
         private val date = view.textViewDate
+        private val wordCount = view.textViewWordCount
 
         @SuppressLint("SimpleDateFormat", "SetTextI18n")
         fun bind(note: Note) {
@@ -28,6 +29,7 @@ class NotesAdapter(var notes: ArrayList<Note>, val actions: ListAction): Recycle
             val updateAt = Date(note.updateAt)
             date.text = "Last updated: ${sdf.format(updateAt)}"
             layout.setOnClickListener { actions.onClick(note.id) }
+            wordCount.text = "Words: ${note.wordCount}"
         }
 
     }
