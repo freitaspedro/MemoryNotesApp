@@ -1,6 +1,6 @@
 # Memory Notes
 
-<img align="right" src="https://github.com/freitaspedro/MemoryNotesApp/raw/master/assets/memory-notes-app.png" width="200">
+<img align="right" src="https://github.com/freitaspedro/MemoryNotesApp/raw/main/assets/memory-notes-app.png" width="200">
 
 Memory Notes is a practical example of how to use 
 [Clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). 
